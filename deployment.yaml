@@ -2,10 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: assignmenttesting-deployment
-  labels:
-    app: assignmenttesting
 spec:
-  replicas: 2
+  replicas: 1  # Number of replicas (Pods) to run
   selector:
     matchLabels:
       app: assignmenttesting
@@ -15,7 +13,7 @@ spec:
         app: assignmenttesting
     spec:
       containers:
-      - name: maventest-container
-        image: vaishnaveeshree03/assignmenttesting:latest
-        ports:
-        - containerPort: 8080
+        - name: assignmenttesting
+          image: vaishnaveeshree03/assignmenttesting:latest
+          ports:
+            - containerPort: 8080
