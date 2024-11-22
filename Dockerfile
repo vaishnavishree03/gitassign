@@ -1,3 +1,3 @@
 FROM openjdk:17
-COPY target/assignmenttesting-1.0.jar /app.jar
-ENTRYPOINT ["sh", "-c", "java -jar /app.jar && sleep infinity"]
+COPY target/assignmenttesting-1.0.jar /assignmenttesting.jar
+ENTRYPOINT ["sh", "-c", "java -jar /assignmenttesting.jar && sleep infinity"]
