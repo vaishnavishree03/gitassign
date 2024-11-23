@@ -1,12 +1,8 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: batch/v1
+kind: Job
 metadata:
-  name: assignmenttesting-deployment
+  name: assignmenttesting-job
 spec:
-  replicas: 1  # Number of replicas (Pods) to run
-  selector:
-    matchLabels:
-      app: assignmenttesting
   template:
     metadata:
       labels:
@@ -15,5 +11,6 @@ spec:
       containers:
         - name: assignmenttesting
           image: vaishnaveeshree03/assignmenttesting:latest
-          ports:
-            - containerPort: 8080
+          imagePullPolicy: Always
+      restartPolicy: Never
+  backoffLimit: 4
